@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- original:https://codepen.io/boudra/pen/raErwP -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,8 +8,7 @@
     <style>
         body {
     font-family: 'Arial', sans-serif;
-    background-color: #3b323f;
-  height: 100vh;
+    background-color: #fff;
 }
 
 .wrapper {
@@ -27,38 +25,23 @@ button::-moz-focus-inner {
 }
 
 #calendari {
-    margin: 20px 0;
-    position: relative;
-    overflow: hidden;
-    height: 310px;
-    width: 350px;
+    margin:  0 auto;
+    /* height: 330px; */
+    /* width: 350px; */
     font-size: 14px;
-    box-shadow: 0px 1px 4px rgba(0,0,0,0.4);
+    /* box-shadow: 0px 1px 4px rgba(0,0,0,0.4); */
 }
 table {
     border-collapse: collapse;
     table-layout: fixed;
-    width: 350px;
     box-shadow: 0px 1px 3px rgba(0,0,0,0.2);
     background-color: #fff;
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translateX(0);
-    transition: all 0.3s ease;
+
+
 }
-table.actiu {
-    transform: translateX(0px)top;
-}
-table.inactiu {
-    transition: all 0.3s 0.01s ease;
-}
-table.amagat-esquerra {
-    transform: translateX(-299px);
-}
-table.amagat-dreta {
-    transform: translateX(300px);
-}
+
+
 td,th {
     text-align: center;
     background-color: #fff;
@@ -79,7 +62,7 @@ td:last-child, th:last-child {
 th {
     border-top: 1px solid rgba(0,0,0,0.1);
     border-right: 1px solid rgba(0,0,0,0.1);
-    background-color: #e5a4a7;
+    background-color: #d88a8e;
     color: #fff;
     text-shadow: 0px -1px 0px rgba(0,0,0,0.2);
     font-weight: normal;
@@ -111,11 +94,11 @@ td:nth-child(even)>span {
 }
 td:last-child>span,
 td:nth-child(6)>span {
-    color: #d8898c;
+    color: #d88a8e;
 }
 td.avui>span {
     font-weight: bold;
-    background-color: #d8898c;
+    background-color: #d88a8e;
     color: #fff;
     border: 2px solid rgba(0,0,0,0.1);
 }
@@ -287,6 +270,7 @@ function calendari(widget, data)
     fila.innerHTML += '<th>' + dies_abr[0] + '</th>';
     e.appendChild(fila);
 
+    /* Obtinc el dia que va acabar el mes anterior */
     var inici_mes =
         new Date(data.getFullYear(), data.getMonth(), -1).getDay();
 
@@ -294,6 +278,9 @@ function calendari(widget, data)
 			  data.getMonth(),
 			  -inici_mes);
 
+    /* 6 setmanes per cobrir totes les posiblitats
+     *  Quedaria mes consistent alhora de mostrar molts mesos 
+     *  en una quadricula */
     for(var s = 0; s < 6; s++)
     {
         var fila = document.createElement('tr');
