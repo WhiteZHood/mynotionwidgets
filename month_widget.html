@@ -99,7 +99,7 @@ td:nth-child(6)>span {
 }
 td.avui>span {
     font-weight: bold;
-    background-color: #9b59b6;
+    background-color: #e5a4a7;
     color: #fff;
     border: 2px solid rgba(0,0,0,0.1);
 }
@@ -107,7 +107,7 @@ td.fora > span {
     opacity: 0.2;
 }
 td > span:hover {
-    background: #a57cb6;
+    background: #e5a4a7;
     color: #fff;
 }
 .boto-next, .boto-prev {
@@ -271,7 +271,6 @@ function calendari(widget, data)
     fila.innerHTML += '<th>' + dies_abr[0] + '</th>';
     e.appendChild(fila);
 
-    /* Obtinc el dia que va acabar el mes anterior */
     var inici_mes =
         new Date(data.getFullYear(), data.getMonth(), -1).getDay();
 
@@ -279,9 +278,6 @@ function calendari(widget, data)
 			  data.getMonth(),
 			  -inici_mes);
 
-    /* 6 setmanes per cobrir totes les posiblitats
-     *  Quedaria mes consistent alhora de mostrar molts mesos 
-     *  en una quadricula */
     for(var s = 0; s < 6; s++)
     {
         var fila = document.createElement('tr');
@@ -331,4 +327,3 @@ calendari(document.getElementById('calendari'), new Date());
     </script>
 </body>
 </html>
-
