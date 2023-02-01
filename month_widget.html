@@ -49,11 +49,11 @@ Source https://codepen.io/ismailvtl/pen/KrVrbp
 }
 
 .calendar .calendar-inner .calendar-body div {
-    padding: 4px;
+    padding: 1px;
     min-height: 20px;
     line-height: 20px;
     border: 1px solid transparent;
-    margin: 10px 2px 0px;
+    margin: 10px 1px 0px;
 }
 
 .calendar .calendar-inner .calendar-body div:nth-child(-n+7) {
@@ -94,9 +94,9 @@ Source https://codepen.io/ismailvtl/pen/KrVrbp
     display: grid;
     text-align: center;
     cursor: pointer;
-    margin: 3px 0px;
+    margin: 1px 0px;
     background: var(--calendar-current-date-color);
-    padding: 4px 0px;
+    padding: px 0px;
 }
 
 .calendar .calendar-inner .calendar-controls .calendar-year-month {
@@ -148,7 +148,7 @@ function CalendarControl() {
   const calendar = new Date();
   const calendarControl = {
     localDate: new Date(),
-    calWeekDays: ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"],
+    calWeekDays: ["S", "M", "T", "W", "T", "F", "S"],
     calMonthName: [
       "Jan",
       "Feb",
