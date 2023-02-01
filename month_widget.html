@@ -32,7 +32,7 @@ Source https://codepen.io/ismailvtl/pen/KrVrbp
     min-width: 150px;
     background: var(--calendar-bg-color);
     color: var(--calendar-font-color);
-    margin: 5px auto;
+    margin: 0px auto;
     box-sizing: border-box;
     overflow: hidden;
     font-weight: normal;
@@ -148,7 +148,7 @@ function CalendarControl() {
   const calendar = new Date();
   const calendarControl = {
     localDate: new Date(),
-    calWeekDays: ["S", "M", "T", "W", "T", "F", "S"],
+    calWeekDays: ["M", "T", "W", "T", "F", "S", "S"],
     calMonthName: [
       "Jan",
       "Feb",
@@ -167,7 +167,7 @@ function CalendarControl() {
       return new Date(year, month, 0).getDate();
     },
     firstDay: function() {
-      return new Date(calendar.getFullYear(), calendar.getMonth(), 1);
+      return new Date(calendar.getFullYear(), calendar.getMonth(), 0);
     },
     lastDay: function() {
       return new Date(calendar.getFullYear(), calendar.getMonth() + 1, 0);
@@ -231,7 +231,7 @@ function CalendarControl() {
       <div class="calendar-next"><a href="#">></a></div>
       </div>
       <div class="calendar-today-date">Today: 
-        ${calendarControl.calWeekDays[calendarControl.localDate.getDay()]}, 
+        ${calendarControl.calWeekDays[calendarControl.localDate.getDay() - 1]}, 
         ${calendarControl.localDate.getDate()}, 
         ${calendarControl.calMonthName[calendarControl.localDate.getMonth()]} 
         ${calendarControl.localDate.getFullYear()}
@@ -331,3 +331,4 @@ const calendarControl = new CalendarControl();
 
 </script>
 </html>
+
