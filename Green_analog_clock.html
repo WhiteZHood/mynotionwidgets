@@ -1,16 +1,6 @@
 <html>
 <head>
-<style>
-
-.clock
-  .inner
-    .hour.hand
-    .minute.hand
-    .second.hand
-    .graduations
-      - for (var graduations = 1; graduations <= 60; graduations++)
-        .graduation
-
+    <style>
 // ---- VARIABLES
 
 $clockSize: 360px
@@ -121,8 +111,19 @@ body
         @for $i from 1 through 60
           &:nth-child(#{$i})
             transform: rotate(#{( 6 * $i) - 5}deg) translateX(-50%)
-
-/** Our wonderfull little clock **/
+    </style>
+</head>
+<body>
+    .clock
+  .inner
+    .hour.hand
+    .minute.hand
+    .second.hand
+    .graduations
+      - for (var graduations = 1; graduations <= 60; graduations++)
+        .graduation
+    <script>
+        /** Our wonderfull little clock **/
 class Clock {
 
   /**
@@ -197,8 +198,9 @@ class Clock {
     return (percentage * 360) / 100;
   }
 
-</script>
-</html>
 }
 
 let clock = new Clock();
+    </script>
+</body>
+</html>
